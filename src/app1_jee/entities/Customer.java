@@ -62,6 +62,32 @@ public class Customer implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    public void setFirstname(String _firstname) {
+        this.firstname = _firstname;
+    }
+    
+    public void setLastname(String _lastname) {
+        this.lastname = _lastname;
+    }
+    
+    public void setPassword(String _password) {
+        this.password = _password;
+    }
+    
+    public void setEmail(String _email) {
+        this.email = _email;
+    }
+    
+     public void setTelephone(String _telephone) {
+        this.telephone = _telephone;
+    }
+     
+     public void setLogin(String _login) {
+        this.login = _login;
+    }
+     
+     
 
     @Override
     public int hashCode() {
