@@ -23,7 +23,7 @@ public class Customer implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstname;
-    private String lasname;
+    private String lastname;
     private String password;
     private String email;
     private String telephone;
@@ -31,9 +31,32 @@ public class Customer implements Serializable {
     
     
     
-
+    public String getFirstname(){
+        return this.firstname;
+    }
+    
+    public String getLastname(){
+        return this.lastname;
+    }
+    
+    public String getPassword(){
+        return this.password;
+    }
+    
+    
+    public String getEmail(){
+        return this.email;
+    }
     public Long getId() {
         return id;
+    }
+    
+    public String getTelephone(){
+        return this.telephone;
+    }
+    
+    public String getLogin(){
+        return this.login;
     }
 
     public void setId(Long id) {
