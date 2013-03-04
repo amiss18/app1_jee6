@@ -5,6 +5,7 @@
 package app1_jee.entities;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,11 +23,17 @@ public class Customer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name="firstname", nullable=false, length = 55)
     private String firstname;
+    @Column(name="lastname", nullable=false, length = 55)
     private String lastname;
+    @Column(name="password", nullable=false, length = 55)
     private String password;
+    @Column(unique=true, name="email", nullable=false, length = 55)
     private String email;
+    @Column(unique=true, name="telephone", nullable=false, length = 16)
     private String telephone;
+    @Column(unique=true, name="login", nullable=false, length = 55)
     private String login;
     
     
