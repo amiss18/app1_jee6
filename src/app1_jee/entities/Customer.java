@@ -22,6 +22,7 @@ public class Customer implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id" ,unique=true,nullable=false)
     private Long id;
     @Column(name="firstname", nullable=false, length = 55)
     private String firstname;
@@ -31,7 +32,7 @@ public class Customer implements Serializable {
     private String password;
     @Column(unique=true, name="email", nullable=false, length = 55)
     private String email;
-    @Column(unique=true, name="telephone", nullable=false, length = 16)
+    @Column(name="telephone", nullable=false, length = 16)
     private String telephone;
     @Column(unique=true, name="login", nullable=false, length = 55)
     private String login;
