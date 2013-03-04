@@ -111,7 +111,9 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "app1_jee.entities.Customer[ id=" + id + " ]";
+        return "app1_jee.entities.Customer[ lastname=" + this.lastname + ", firstname="+ this.firstname +
+                "\nphone= "+ this.telephone + "\n login = " + login + " and password = " +password+
+                "]";
     }
     
 }
