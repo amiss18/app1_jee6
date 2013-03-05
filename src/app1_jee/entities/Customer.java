@@ -5,11 +5,14 @@
 package app1_jee.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -17,11 +20,11 @@ import javax.persistence.Table;
  * @author armel
  */
 @Entity
-@Table(name="jee_customer")
+@Table(name="t_customer")
 public class Customer implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id" ,unique=true,nullable=false)
     private Long id;
     @Column(name="firstname", nullable=false, length = 55)
@@ -37,7 +40,19 @@ public class Customer implements Serializable {
     @Column(unique=true, name="login", nullable=false, length = 55)
     private String login;
     
+    @OneToMany
+    @JoinColumn(name="customer_fk")
+    private List<Address> address;
     
+    public Customer(){}
+    public Customer(String email, String lastname, String firstname, String login, String pass, String tel){
+        this.email = email;
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.login = login;
+        this.password = pass;
+        this.telephone = tel;
+    }
     
     public String getFirstname(){
         return this.firstname;
@@ -66,6 +81,10 @@ public class Customer implements Serializable {
     public String getLogin(){
         return this.login;
     }
+    
+    public List<Address> getAddress(){
+        return this.address;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -93,6 +112,10 @@ public class Customer implements Serializable {
      
      public void setLogin(String _login) {
         this.login = _login;
+    }
+     
+    public void setAddress( List<Address> _add) {
+        this.address = _add;
     }
      
      

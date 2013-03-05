@@ -12,22 +12,21 @@ import java.util.*;
  *
  * @author armel
  */
-public class App1_jee {
+public class Main {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        App1_jee app=new App1_jee();
+        Main app=new Main();
          CustomerBean c, c1, c3;
          c =new CustomerBean();
           
           
         for(int i=0; i<10; i++){
-       // Customer customer=new Customer();
         c1=new CustomerBean();
-       c1.createCustomer("ammmoss"+i+"@domain.com", "toto"+i, "armel"+i, "loginToto"+i, "pass"+i, "00 66 00 00 0"+i);
+     //  c1.createCustomer("ammmoss"+i+"@domain.com", "toto"+i, "armel"+i, "loginToto"+i, "pass"+i, "00 66 00 00 0"+i);
        
         }
         
@@ -37,7 +36,7 @@ public class App1_jee {
         
          System.out.println("*******lister les enregistrements de la table jee_customer *********");
          
-        
+       /* 
         List<Customer> customers=c.getAllCustomers();
         int i=0;
          System.out.println("");
@@ -45,6 +44,7 @@ public class App1_jee {
            i++;
            System.out.println("-> customer n° "+i+"= "+cu.getLastname() +",  email= " + cu.getEmail()+", phone :" +cu.getTelephone());
        }
+       */
     }
     
     
