@@ -110,7 +110,7 @@ public class Main {
          System.out.println("");
        for(Customer cu : customers ){
            i++;
-           System.out.println("-> customer n° "+i+"= "+cu.getLastname() +",  email= " + cu.getEmail()+", phone :" +cu.getTelephone()+ "adresse = " + cu.getAddress());
+           System.out.println("-> customer n° "+i+"= "+cu.getLastname() +",  email= " + cu.getEmail()+", phone :" +cu.getTelephone()+ "adresse = " + cu.getAddress()+" "+cu.getBook());
        }
        
     }
