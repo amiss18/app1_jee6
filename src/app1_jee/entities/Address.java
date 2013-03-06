@@ -18,16 +18,18 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="t_address")
+
 public class Address implements Serializable {
+    
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id" ,unique=true,nullable=false)
     private Long id;
     
      @Column(name="street", nullable=false, length = 80)
      private String street;
-     @Column(name="cp", nullable=false, length = 5)
+     @Column(name="cp", nullable=false, length = 15)
      private String cp;
      @Column(name="city", nullable=false, length = 50)
      private String city;
@@ -93,7 +95,7 @@ public class Address implements Serializable {
 
     @Override
     public String toString() {
-        return "app1_jee.entities.Address[ id=" + id + " ]";
+        return "\tAddress : [" +" i="+ id + ", "+ street + ","+ cp + " " + city+ " ]";
     }
     
 }

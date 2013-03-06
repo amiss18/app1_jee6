@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>app1_jee.entities.Customer</class>
     <class>app1_jee.entities.Address</class>
+    <class>app1_jee.entities.Book</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bbd?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.password" value="bd"/>

@@ -15,7 +15,7 @@ public class CustomerBean {
    private Query query;
    private EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("app1_jeePU");
     EntityManager em = emf.createEntityManager();
-       
+    private List<Address> address =new ArrayList()  ;
     /*
      * lister tous les clients
      */
@@ -42,13 +42,14 @@ public class CustomerBean {
     }
     
     /*
-    public Customer createCustomer(Customer customer){
-        if(customer == null )
-            throw new ValidationException("Customer object is null");
-        this.customer=customer;
-        persist(customer);
-        return customer;
-    }*/
+     public Customer createCustomer(Address address, Customer customer){
+         customer.addAdress(address);
+         this.persist(customer);
+         return customer;
+     }
+      */
+    
+   
         
    
     
@@ -61,6 +62,7 @@ public class CustomerBean {
     }
 
     public void persist(Object object) {
+    
         em.getTransaction().begin();
         try {
             em.persist(object);

@@ -5,15 +5,9 @@
 package app1_jee.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
@@ -24,7 +18,8 @@ import javax.persistence.Table;
 public class Customer implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id" ,unique=true,nullable=false)
     private Long id;
     @Column(name="firstname", nullable=false, length = 55)
@@ -40,10 +35,14 @@ public class Customer implements Serializable {
     @Column(unique=true, name="login", nullable=false, length = 55)
     private String login;
     
-    @OneToMany
+    @OneToMany(fetch= FetchType.EAGER, cascade= CascadeType.ALL)
     @JoinColumn(name="customer_fk")
     private List<Address> address;
     
+    @OneToMany(fetch= FetchType.EAGER, cascade= CascadeType.ALL)
+    @JoinColumn(name="customer_fk")
+    private List<Book> books;
+  
     public Customer(){}
     public Customer(String email, String lastname, String firstname, String login, String pass, String tel){
         this.email = email;
@@ -82,8 +81,13 @@ public class Customer implements Serializable {
         return this.login;
     }
     
+    
     public List<Address> getAddress(){
         return this.address;
+    }
+     
+    public List<Book> getBook(){
+        return this.books;
     }
 
     public void setId(Long id) {
@@ -117,8 +121,16 @@ public class Customer implements Serializable {
     public void setAddress( List<Address> _add) {
         this.address = _add;
     }
+    
+     public void setBook( Book _book) {
+         books=new ArrayList<Book>();
+         books.add(_book);
+    }
      
-     
+     public void addAdress(Address add){
+         this.address = new ArrayList<Address>();
+         address.add(add);
+     }
 
     @Override
     public int hashCode() {
