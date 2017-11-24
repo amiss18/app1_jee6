@@ -1,0 +1,6 @@
+- The colors
+
+orange
+black
+red
+yellow
